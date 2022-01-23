@@ -1,38 +1,223 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  width: 100%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-bar-container {
+  background-color: #292929;
+}
+.header-bar {
+  width: 1010px;
+  height: 35px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.header-left {
+  color: #fff;
+  width: 230px;
+  height: 96px;
+  background-color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  left: 0;
+  top: 20px;
+}
+.header-left h1 {
+  margin: 0;
+  font-size: 38px;
+}
+.contact {
+  color: #c4c4c4;
+  padding-left: 250px;
+}
+.far {
+  padding-right: 5px;
+}
+.header-right {
+  display: flex;
+  color: #fff;
+}
+.header-right p {
+  margin-left: 40px;
+}
+.header-tabs {
+  color: #fff;
+  background-color: #616161;
+  width: 1010px;
+  height: 81px;
+  margin: 0 auto;
+  padding-left: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header-tabs a {
+  color: #fff;
+  width: 293px;
+  height: 81px;
+  margin: 0;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-top: 1px solid rgb(179, 171, 171);
+  border-right: 1px solid rgb(179, 171, 171);
+}
+.header-nav-top {
+  background-color: red;
+}
+.header-nav {
+  width: 1010px;
+  height: 50px;
+  color: #fff;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-nav-left {
+  display: flex;
+  margin: 0 15px;
+}
+.header-nav-left h4 {
+  margin-right: 40px;
+}
+.autos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.product-button {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7ed321;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-button-name {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+.fa-plus-circle {
+  font-size: 23px;
+  margin-left: 20px;
+  padding-right: 7px;
+}
+.filter-wrapper {
+  width: 1010px;
+  height: 100px;
+  padding: 20px 25px 5px;
+  background-color: rgb(201, 198, 198);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+select {
+  width: 200px;
+  height: 50px;
+  border: none;
+}
+.cars-section {
+  border-radius: 8px;
+}
+.valuta {
+  width: 90px;
+  height: 40px;
+  margin-right: 5px;
+}
+input {
+  width: 70px;
+  height: 40px;
+}
+label {
+  text-align: center;
+  margin-right: 5px;
+  border-radius: 5px 0 0 5px;
+  display: inline-block;
+  width: 90px;
+  line-height: 40px;
+  background-color: #fff;
+}
+.btn-search {
+  width: 200px;
+  height: 50px;
+  background-color: #c71b25;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.product-container {
+  width: 1010px;
+  margin: 0 auto;
+}
+.new-product {
+  display: flex;
+  margin: 10px 0 20px 0;
+}
+.new-cars {
+  border: 1px solid black;
+  margin-left: 70px;
+}
+.new-product p {
+  margin-left: 20px;
+}
+.car-price {
+  width: 100px;
+}
+.btn-add {
+  width: 150px;
+  height: 50px;
+  background-color: #c71b25;
+  font-size: 17px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.car-wrapper {
+  width: 1010px;
+  margin: 0 auto;
+}
+.car-card {
+  width: 250px;
+  height: 300px;
+  background-color: aqua;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.car-card img {
+  width: 250px;
+  height: 150px;
+}
+.all-cars {
+  width: 1010px;
+  margin: 20px auto;
+}
+.car-card:not(:first-child) {
+  margin-left: 15px;
+}
+.car-cantainer {
+  display: flex;
+}
+.car-image {
+  width: 100px;
+  height: 100px;
 }
