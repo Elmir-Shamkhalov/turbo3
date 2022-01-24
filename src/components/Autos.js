@@ -16,6 +16,7 @@ class Autos extends Component {
               <div className="car-card">
                 <img src={car.carImage}></img>
                 <h2>{car.brand}</h2>
+                <h3>{car.price} AZN</h3>
               </div>
             )
           }

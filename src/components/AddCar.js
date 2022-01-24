@@ -41,70 +41,74 @@ class AddCar extends Component {
   render() {
     return (
       <div className="product-container">
-        <div className="new-product">
-          <label>Marka</label>
-          <select
-            className="new-cars"
-            name="brand"
-            onChange={this.handleFormDatas}
-          >
-            <option value="">Secin</option>
-            <option value="bmw">BMW</option>
-            <option value="opel">Opel</option>
-            <option value="mazda">Mazda</option>
-            <option value="audi">Audi</option>
-            <option value="haval">Haval</option>
-            <option value="honda">Honda</option>
-            <option value="hummer">Hummer</option>
-            <option value="lada">Lada</option>
-          </select>
-        </div>
-        <div className="new-product">
-          <label>Reng</label>
-          <select
-            className="new-cars"
-            name="color"
-            onChange={this.handleFormDatas}
-          >
-            <option value="">Secin</option>
-            <option value="qara">Qara</option>
-            <option value="qirmizi">Qirmizi</option>
-            <option value="yasil">Yasil</option>
-            <option value="sari">Sari</option>
-          </select>
-        </div>
-        <div className="new-product">
-          <label>Qiymet</label>
-          <input
-            type="text"
-            name="price"
-            className="new-cars car-price"
-            onChange={this.handleFormDatas}
-          />
-          <p>AZN</p>
-        </div>
-        <div className="cars-photos-container">
-          {this.state.carImage && (
-            <img
-              src={this.state.carImage}
-              className="car-image"
-              alt="car-image"
+        <div className="left-container">
+          <div className="new-product">
+            <label>Marka</label>
+            <select
+              className="new-cars"
+              name="brand"
+              onChange={this.handleFormDatas}
+            >
+              <option value="">Secin</option>
+              <option value="bmw">BMW</option>
+              <option value="opel">Opel</option>
+              <option value="mazda">Mazda</option>
+              <option value="audi">Audi</option>
+              <option value="haval">Haval</option>
+              <option value="honda">Honda</option>
+              <option value="hummer">Hummer</option>
+              <option value="lada">Lada</option>
+            </select>
+          </div>
+          <div className="new-product">
+            <label>Reng</label>
+            <select
+              className="new-cars"
+              name="color"
+              onChange={this.handleFormDatas}
+            >
+              <option value="">Secin</option>
+              <option value="qara">Qara</option>
+              <option value="qirmizi">Qirmizi</option>
+              <option value="yasil">Yasil</option>
+              <option value="sari">Sari</option>
+            </select>
+          </div>
+          <div className="new-product">
+            <label>Qiymet</label>
+            <input
+              type="text"
+              name="price"
+              className="new-cars car-price"
+              onChange={this.handleFormDatas}
             />
-          )}
+            <p>AZN</p>
+          </div>
+          <button className="btn-add" onClick={this.addCar}>
+            Elani Yerlesdir.
+          </button>
         </div>
-        <div>
-          <button onClick={this.addImage}>Şəkil Əlavə et</button>
+        <div className="right-container">
+          <div className="cars-photos-container">
+            {this.state.carImage && (
+              <img
+                src={this.state.carImage}
+                className="car-image"
+                alt="car-image"
+              />
+            )}
+          </div>
+          <div className="btn-img">
+            <button className="btn" onClick={this.addImage}>Şəkil Əlavə et</button>
+          </div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={this.handleCarImage}
+            id="images_input"
+            hidden
+          />
         </div>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={this.handleCarImage}
-          id="images_input"
-          hidden
-        />
-        <button className="btn-add" onClick={this.addCar}>
-          Elani Yerlesdir.
-        </button>
       </div>
     );
   }
