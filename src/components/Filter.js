@@ -6,38 +6,27 @@ import Allcars from "./Allcars";
 class Filter extends Component {
   state = {
     brand: "",
-    minPrice: '',
-    maxPrice: '',
+    minPrice: "",
+    maxPrice: "",
   };
 
   handleFormDatas = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  searchCars = e => {
+  searchCars = (e) => {
     e.preventDefault();
-    let filteredCars = [];
     const { brand, minPrice, maxPrice } = this.state;
     let carsDb = JSON.parse(localStorage.getItem("cars"));
-    let data = carsDb.filter(x=> 
-      minPrice 
-      ? 
-      parseInt(x.price) >= minPrice
-      :
-      maxPrice 
-      ?
-      parseInt(x.price) <= maxPrice
-      :
-      brand
-      ?
-      x.brand.toLowerCase() === brand.toLowerCase()
-      :
-      parseInt(x.price) >= minPrice && parseInt(x.price) <= maxPrice && x.brand.toLowerCase() === brand.toLowerCase()
+    console.log("brand: ", brand);
+    let data = carsDb.filter(
+      (x) =>
+        (minPrice ? parseInt(x.price) >= minPrice : true) &&
+        (maxPrice ? parseInt(x.price) <= maxPrice : true) &&
+        (brand ? x.brand.toLowerCase() === brand.toLowerCase() : false)
     );
-    console.log(data)
-    // console.log(filteredCars);
-    // localStorage.setItem("cars", JSON.stringify(filterCars));
-
+    console.log(data);
+    localStorage.setItem("cars", JSON.stringify(carsDb));
   };
 
   render() {
@@ -45,7 +34,12 @@ class Filter extends Component {
       <div>
         <form className="filter-wrapper">
           <div className="cars-filter">
-            <select name="brand" className="cars-section" onChange={this.handleFormDatas}>
+            <select
+              name="brand"
+              className="cars-section"
+              onChange={this.handleFormDatas}
+            >
+               <option value="">Secin</option>
               <option value="bmw">BMW</option>
               <option value="opel">Opel</option>
               <option value="mazda">Mazda</option>

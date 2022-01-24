@@ -231,7 +231,7 @@ label {
 .btn-img {
   position: absolute;
   right: 300px;
-  bottom: 0;
+  bottom: 1px;
 }
 .btn {
   width: 150px;
