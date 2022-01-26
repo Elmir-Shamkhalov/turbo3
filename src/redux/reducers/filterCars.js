@@ -1,4 +1,4 @@
-import { FILTER_CARS } from "../actions/filterCaars";
+import { FILTER_CARS } from "../actions/filterCars";
 
 const initialState = {
   filterCars: [],

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+import { filterCarsAction } from "../redux/actions/cars";
 import AddCar from "./AddCar";
 import Allcars from "./Allcars";
 
@@ -17,16 +19,17 @@ class Filter extends Component {
   searchCars = (e) => {
     e.preventDefault();
     const { brand, minPrice, maxPrice } = this.state;
-    let carsDb = JSON.parse(localStorage.getItem("cars"));
-    console.log("brand: ", brand);
-    let data = carsDb.filter(
-      (x) =>
-        (minPrice ? parseInt(x.price) >= minPrice : true) &&
-        (maxPrice ? parseInt(x.price) <= maxPrice : true) &&
-        (brand ? x.brand.toLowerCase() === brand.toLowerCase() : false)
-    );
-    console.log(data);
-    localStorage.setItem("cars", JSON.stringify(carsDb));
+    this.props.filterCarsAction({brand,minPrice,maxPrice});
+    // let carsDb = JSON.parse(localStorage.getItem("cars"));
+    // console.log("brand: ", brand);
+    // let data = carsDb.filter(
+    //   (x) =>
+    //     (minPrice ? parseInt(x.price) >= minPrice : true) &&
+    //     (maxPrice ? parseInt(x.price) <= maxPrice : true) &&
+    //     (brand ? x.brand.toLowerCase() === brand.toLowerCase() : false)
+    // );
+    // console.log(data);
+    // localStorage.setItem("cars", JSON.stringify(carsDb));
   };
 
   render() {
@@ -89,4 +92,14 @@ class Filter extends Component {
   }
 }
 
-export default Filter;
+const mapStateToProps = ({ filterCars }) => {
+  return {
+    filterCars,
+  };
+};
+
+const mapDispatchToProps = {
+  filterCarsAction,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

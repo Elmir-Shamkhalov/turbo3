@@ -4,16 +4,26 @@ import React, { Component } from "react";
 class Autos extends Component {
   render() {
     const {
-      cars: { cars },
-    } = this.props;
+      cars,
+      filterCars,
+    } = this.props?.cars;
+  
     return (
       <div className="car-wrapper">
         <div className="car-cantainer">
-          {!cars ? (
+          {filterCars?.length > 0 ? (
+            filterCars.map((car,id) => (
+              <div key={id} className="car-card">
+                <img src={car.carImage}></img>
+                <h2>{car.brand}</h2>
+                <h3>{car.price} AZN</h3>
+              </div>
+            ))
+          ) : !cars ? (
             <p></p>
           ) : (
-            cars.map((car) => (
-              <div className="car-card">
+            cars.map((car,id) => (
+              <div key={id} className="car-card">
                 <img src={car.carImage}></img>
                 <h2>{car.brand}</h2>
                 <h3>{car.price} AZN</h3>
@@ -25,5 +35,6 @@ class Autos extends Component {
     );
   }
 }
+
 
 export default Autos;

@@ -1,7 +1,8 @@
-import { FETCH_CARS } from "../actions/cars";
+import { FETCH_CARS, FILTER_CARS } from "../actions/cars";
 
 const initialState = {
   cars: [],
+  filterCars: [],
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,22 @@ export default (state = initialState, action) => {
         ...state,
         cars: action.payload,
       };
+    case FILTER_CARS: {
+      let properties = action.payload;
+      let copyCars = [...state.cars];
+      copyCars = copyCars.filter(
+        (item) =>
+          item.price === properties.minPrice ||
+          item.price === properties.maxPrice ||
+          item.brand === properties.brand
+      );
+      return {
+        ...state,
+        filterCars: copyCars,
+        
+      };
+    }
+
     default:
       return state;
   }

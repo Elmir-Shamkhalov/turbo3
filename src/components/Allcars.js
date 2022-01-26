@@ -3,19 +3,25 @@ import Autos from "./Autos";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { fetchcars } from "../redux/actions/cars";
-import { filterCars } from "../redux/actions/filterCaars";
+import { filterCars } from "../redux/actions/filterCars";
 
 class Allcars extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   console.log(props);
+  // }
+
   static propTypes = {
     cars: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
+    console.log("fetchCars",this.props)
     this.props.fetchcars();
-    this.props.filterCars();
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="all-cars">
         <h2>Butun Masinlar</h2>
@@ -33,7 +39,6 @@ const mapStateToProps = ({ cars }) => {
 
 const mapDispatchToProps = {
   fetchcars,
-  filterCars,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Allcars);
