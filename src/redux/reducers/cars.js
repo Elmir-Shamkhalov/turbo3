@@ -17,14 +17,13 @@ export default (state = initialState, action) => {
       let copyCars = [...state.cars];
       copyCars = copyCars.filter(
         (item) =>
-          item.price === properties.minPrice ||
-          item.price === properties.maxPrice ||
+          item.price >= properties.minPrice &&
+          item.price <= properties.maxPrice &&
           item.brand === properties.brand
       );
       return {
         ...state,
         filterCars: copyCars,
-        
       };
     }
 

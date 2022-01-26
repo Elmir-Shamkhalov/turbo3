@@ -3,8 +3,6 @@ import Autos from "./Autos";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { fetchcars } from "../redux/actions/cars";
-import { filterCars } from "../redux/actions/filterCars";
-
 class Allcars extends Component {
   // constructor(props) {
   //   super(props);
